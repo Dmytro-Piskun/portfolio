@@ -6,7 +6,9 @@
   --primary-color: #313131;
   --secondary-color: #6c757d;
   --accent-color: #383838;
-  --background-color: #ffffff;    
+  /* --background-color: #ffffff;     */
+    --background-color: #e7e7e7;    
+
 }
 
 /* @media (prefers-color-scheme: dark) {

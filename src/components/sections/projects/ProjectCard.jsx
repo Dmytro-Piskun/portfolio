@@ -4,10 +4,11 @@ import { motion, useInView, useMotionValue, useTransform } from "motion/react";
 import { hexToRgbA } from "@/utils/colorUtils";
 import { animate } from "motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const getRandomValue = (min, max) => Math.random() * (max - min) + min;
 
-const ProjectCard = ({ preview, title, scrollSpeed }) => {
+const ProjectCard = ({ preview, title, scrollSpeed, link }) => {
   const container = useRef(null);
 
   const titleOpacity = useMotionValue(0);
@@ -170,6 +171,7 @@ const ProjectCard = ({ preview, title, scrollSpeed }) => {
     <div className="relative">
 
       <motion.div
+
         style={{
           x,
           y,
@@ -193,14 +195,25 @@ const ProjectCard = ({ preview, title, scrollSpeed }) => {
             {title}
           </h3>
         </motion.div>
-        <Image
-          className={`w-full object-cover duration-300
-            ${isCentered ? "saturate-100 opacity-100 cursor-pointer" : "saturate-0 opacity-95"}`}
-          src={preview}
-          height={600}
-          width={1000}
-          alt="Preview of the project"
-        />
+        {isCentered ? (
+          // <Link href={link} target="_blank" className="block cursor-pointer">
+            <Image
+              className="w-full object-cover duration-300 saturate-100 opacity-100"
+              src={preview}
+              height={600}
+              width={1000}
+              alt="Preview of the project"
+            />
+          // </Link>
+        ) : (
+          <Image
+            className="w-full object-cover duration-300 saturate-0 opacity-95 cursor-default"
+            src={preview}
+            height={600}
+            width={1000}
+            alt="Preview of the project"
+          />
+        )}
       </motion.div>
     </div>
   );

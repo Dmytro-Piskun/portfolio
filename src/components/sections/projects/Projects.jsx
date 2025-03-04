@@ -52,27 +52,27 @@ const Projects = () => {
         {
             title: "Student Management System",
             img: StudentManagementSystemPreview,
-            link: "somelink"
+            link: "https://github.com/Dmytro-Piskun/student-management-system"
         },
-        {
-            title: "Fake2",
-            img: Fake2Preview,
-            link: "somelink"
-        },
+        // {
+        //     title: "Fake2",
+        //     img: Fake2Preview,
+        //     link: "somelink"
+        // },
         {
             title: "Blackjack",
             img: BlackjackPreview,
-            link: "somelink"
+            link: "https://github.com/Dmytro-Piskun/blackjack"
         },
-        {
-            title: "Fake",
-            img: FakePreview,
-            link: "somelink"
-        },
+        // {
+        //     title: "Fake",
+        //     img: FakePreview,
+        //     link: "somelink"
+        // },
         {
             title: "Portfolio",
             img: PortfolioPreview,
-            link: "somelink"
+            link: "https://github.com/Dmytro-Piskun/portfolio"
         },
     ]
 
@@ -101,7 +101,7 @@ const Projects = () => {
                         {projects.map((project, index) => {
 
                             return (
-                                <ProjectCard key={index} title={project.title} preview = {project.img} scrollSpeed={scrollSpeed}/>
+                                <ProjectCard key={index} title={project.title} preview = {project.img} link={project.link} scrollSpeed={scrollSpeed}/>
                             );
                         })}
                     </motion.div>

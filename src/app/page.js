@@ -8,7 +8,7 @@ import Experience from "@/components/sections/experience/experience";
 
 export default function Home() {
   return (
-    <main className="bg-background ">
+    <main className="bg-background transition-colors  duration-75">
       <BackgroundNoize>
       <Hero/>
       {/* <Skills/> */}
