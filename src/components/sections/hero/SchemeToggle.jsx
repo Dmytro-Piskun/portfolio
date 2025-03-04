@@ -1,65 +1,60 @@
-'use client'
+"use client";
+
 import Image from 'next/image';
 import switchOn from '@/assets/scheme-switch/switch-on.png';
 import switchOff from '@/assets/scheme-switch/switch-off.png';
 import { useState, useEffect } from 'react';
 
 const SchemeToggle = () => {
-    const userPreference = handleUserPreference();
-    const [isSwitchOn, setIsSwitchOn] = useState(userPreference === 'light');
+    const [isSwitchOn, setIsSwitchOn] = useState(false);
 
-    const root = document.documentElement;
+    useEffect(() => {
+        // Ensure this runs only on the client
+        if (typeof window !== "undefined") {
+            const savedScheme = localStorage.getItem("prefered-color-scheme");
+            if (savedScheme) {
+                setIsSwitchOn(savedScheme === "light");
+            } else {
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                setIsSwitchOn(!prefersDark);
+            }
+        }
+    }, []);
 
-    const setSchemeDark = ()=>{
-        setTimeout(() => {
-            root.style.setProperty('--primary-color', '#ffffff');
-            root.style.setProperty('--secondary-color', '#cccccc');
-            root.style.setProperty('--accent-color', '#ffffff');
-            root.style.setProperty('--background-color', '#252525');
-        }, 0);    };
-    
-     const setSchemeLight = ()=>{
-            root.style.setProperty('--primary-color', '#313131');  
-            root.style.setProperty('--secondary-color', '#6c757d');  
-            root.style.setProperty('--accent-color', '#383838');  
-            root.style.setProperty('--background-color', '#ffffff');  
+    useEffect(() => {
+        if (typeof document !== "undefined") {
+            const root = document.documentElement;
+            if (isSwitchOn) {
+                root.style.setProperty('--primary-color', '#313131');
+                root.style.setProperty('--secondary-color', '#6c757d');
+                root.style.setProperty('--accent-color', '#383838');
+                root.style.setProperty('--background-color', '#ffffff');
+            } else {
+                root.style.setProperty('--primary-color', '#ffffff');
+                root.style.setProperty('--secondary-color', '#cccccc');
+                root.style.setProperty('--accent-color', '#ffffff');
+                root.style.setProperty('--background-color', '#252525');
+            }
+        }
+    }, [isSwitchOn]);
+
+    const handleSchemeToggle = () => {
+        setIsSwitchOn((prev) => {
+            const newScheme = prev ? "dark" : "light";
+            if (typeof window !== "undefined") {
+                localStorage.setItem("prefered-color-scheme", newScheme);
+            }
+            return !prev;
+        });
     };
 
-    if(isSwitchOn){
-        setSchemeLight();
-    }
-    else{
-       setSchemeDark();
-    }
-
-    function handleUserPreference() {
-                    if (!localStorage.getItem("prefered-color-scheme")){
-                        const prefersDark = window.matchMedia(
-                            "(prefers-color-scheme: dark)"
-                        );
-                
-                        if (prefersDark.matches) {
-                            return "dark";
-                        } else {
-                            return "light";
-                        }
-                    }
-                    else {
-                        return localStorage.getItem("prefered-color-scheme")
-                    }
-                }         
-
-
- const handleSchemeToggle = () => {
-        setIsSwitchOn((prevIsSwitchOn => {
-            localStorage.setItem("prefered-color-scheme",!prevIsSwitchOn?"light":"dark");
-            return !prevIsSwitchOn;
-        }));        
-    }
-
-
     return (
-        <Image onClick={handleSchemeToggle} className=' rotate-3 w-12'  alt='lightswitch' src={isSwitchOn ? switchOn : switchOff} />
+        <Image 
+            onClick={handleSchemeToggle} 
+            className="rotate-3 w-12 cursor-pointer"  
+            alt="lightswitch" 
+            src={isSwitchOn ? switchOn : switchOff} 
+        />
     );
 };
 
