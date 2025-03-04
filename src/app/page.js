@@ -4,7 +4,7 @@ import Hero from "@/components/sections/hero/Hero";
 import Skills from "@/components/sections/skills/Skills";
 import Projects from "@/components/sections/projects/Projects";
 import BackgroundNoize from "@/components/global-components/BackgroundNoize";
-import Experience from "@/components/sections/experience/experience";
+import Experience from "@/components/sections/experience/Experience";
 
 export default function Home() {
   return (
