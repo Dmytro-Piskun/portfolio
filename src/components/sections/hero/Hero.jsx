@@ -1,11 +1,11 @@
 'use client'
 import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
-import { useRef, memo } from "react";
+import { useRef } from "react";
 import Lines from "./Lines";
 import SchemeToggle from "./SchemeToggle";
 import Time from "./Time";
 
-const Hero = memo(() => {
+const Hero = () => {
     const container = useRef(null);
 
     const { scrollYProgress } = useScroll({
@@ -36,7 +36,7 @@ const Hero = memo(() => {
     };
 
     return (
-        <section ref={container} className="h-[200dvh] max-sm:h-[200dvh]">
+        <section ref={container} className="h-[200dvh] max-sm:h-[400dvh]">
             <div className="sticky top-0 overflow-hidden">
                 <motion.div 
                     style={{
@@ -44,7 +44,8 @@ const Hero = memo(() => {
                         opacity: opacityValue,
                         filter: blur,
                     }} 
-                    className="origin-[50%_65%]"
+                    layout
+                    className="origin-[50%_65%] will-change-[filter,scale,opacity]"
                 >
                     <div className="h-dvh overflow-hidden flex flex-col">
                         <Lines />
@@ -81,8 +82,8 @@ const Hero = memo(() => {
             </div>
         </section>
     );
-});
+};
 
-Hero.displayName = 'Hero';
+
 
 export default Hero;
