@@ -18,13 +18,23 @@ const Waves = ({ scrollSpeed, className }) => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight / 2;
 
-    const waves = Array.from({ length: 15 }, () => ({
-      y: canvas.height / 2 + (Math.random() - 0.5) * 200,
+    const maxAmplitude = canvas.height / 4; // Limit max amplitude to avoid going off canvas vertically
+  const waves = Array.from({ length: 15 }, () => {
+    // Ensure y is within safe bounds
+    const y = Math.random() * (canvas.height * 0.6) + canvas.height * 0.2;
+
+    // Adjust the amplitude so it doesn't exceed the canvas limits based on y
+    const amplitude = Math.min(30 + Math.random() * 100, maxAmplitude);
+    const adjustedY = Math.min(Math.max(y, amplitude), canvas.height - amplitude);  // Ensure wave doesn't go off bounds
+
+    return {
+      y: adjustedY,
       length: 0.002 + Math.random() * 0.005,
-      amplitude: 30 + Math.random() * 100,
+      amplitude: amplitude,
       phase: Math.random() * Math.PI * 2,
       opacity: 0.2 + Math.random() * 0.5
-    }));
+    };
+  });
 
     let time = 0;
 
