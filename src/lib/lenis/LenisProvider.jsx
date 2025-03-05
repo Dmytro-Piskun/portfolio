@@ -20,7 +20,7 @@ const LenisProvider = ({ children, scrollBlockDuration = 0 }) => {
     }, scrollBlockDuration);
 
     return () => clearTimeout(timer);
-  }, [])
+  }, [scrollBlockDuration])
 
   return (
     <>

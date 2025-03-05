@@ -19,7 +19,7 @@ const ScrollBlocker = ({ children }) => {
 
             return () => clearTimeout(timer);
         }
-    }, []);
+    }, [isScrollBlocked]);
 
     return (
         <>
