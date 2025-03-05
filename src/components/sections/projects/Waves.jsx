@@ -1,5 +1,6 @@
 "use client";
 
+import usePrimaryColor from "@/hooks/usePrimaryColor";
 import { hexToRgbA } from "@/utils/colorUtils";
 import { useEffect, useRef } from "react";
 
@@ -7,40 +8,7 @@ const Waves = ({ scrollSpeed, className }) => {
   const canvasRef = useRef(null);
   const animationSpeedRef = useRef(0.01);
 
-  const primaryColorRef = useRef(
-    getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim()
-  );
-
-  useEffect(() => {
-    
-    const updatePrimaryColor = () => {
-      const newColor = getComputedStyle(document.documentElement)
-        .getPropertyValue('--primary-color')
-        .trim();
-      if (newColor !== primaryColorRef.current) {
-        primaryColorRef.current = newColor;
-      }
-    };
-
-    updatePrimaryColor();
-
-    const observer = new MutationObserver((mutationsList) => {
-      for (const mutation of mutationsList) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-          updatePrimaryColor();
-        }
-      }
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['style'],
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const primaryColorRef = usePrimaryColor();
 
   useEffect(() => {
     const canvas = canvasRef.current;

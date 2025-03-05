@@ -5,6 +5,7 @@ import { hexToRgbA } from "@/utils/colorUtils";
 import { animate } from "motion";
 import Image from "next/image";
 import Link from "next/link";
+import usePrimaryColor from "@/hooks/usePrimaryColor";
 
 const getRandomValue = (min, max) => Math.random() * (max - min) + min;
 
@@ -20,39 +21,7 @@ const ProjectCard = ({ preview, title, scrollSpeed, link }) => {
     margin: "-30% -43% -30% -43%"
   });
 
-  const primaryColorRef = useRef(
-    getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim()
-  );
-
-  useEffect(() => {
-    const updatePrimaryColor = () => {
-      const newColor = getComputedStyle(document.documentElement)
-        .getPropertyValue('--primary-color')
-        .trim();
-      if (newColor !== primaryColorRef.current) {
-        primaryColorRef.current = newColor;
-      }
-    };
-
-    updatePrimaryColor();
-
-    const observer = new MutationObserver((mutationsList) => {
-      for (const mutation of mutationsList) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-          updatePrimaryColor();
-        }
-      }
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['style'],
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const primaryColorRef = usePrimaryColor();
 
   const y = useMotionValue(0);
   const x = useMotionValue(0);
