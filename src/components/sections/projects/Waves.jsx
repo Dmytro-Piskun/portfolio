@@ -1,56 +1,55 @@
 "use client";
 
+import React, { useEffect, useRef, useCallback, useMemo } from "react";
 import usePrimaryColor from "@/hooks/usePrimaryColor";
 import { hexToRgbA } from "@/utils/colorUtils";
-import { useEffect, useRef } from "react";
 
-const Waves = ({ scrollSpeed, className }) => {
+const Waves = React.memo(({ scrollSpeed, className }) => {
   const canvasRef = useRef(null);
-  const animationSpeedRef = useRef(0.01);
-
+  const animationFrameRef = useRef(null);
   const primaryColorRef = usePrimaryColor();
 
-  useEffect(() => {
+  // Memoize wave generation to prevent unnecessary recalculations
+  const waves = useMemo(() => {
+    return Array.from({ length: 15 }, () => ({
+      y: 0, // Initial y will be set in drawWaves
+      length: 0.002 + Math.random() * 0.005,
+      amplitude: 30 + Math.random() * 100,
+      phase: Math.random() * Math.PI * 2,
+      opacity: 0.2 + Math.random() * 0.5
+    }));
+  }, []);
+
+  const drawWaves = useCallback(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas?.getContext('2d');
+    
+    if (!canvas || !ctx) return;
+
+    // Resize handling
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight / 2;
 
+    // Initialize waves y position on each draw to adapt to canvas height
+    waves.forEach((wave) => {
+      wave.y = canvas.height / 2 + (Math.random() - 0.5) * 200;
+    });
+
     let time = 0;
-    let animationFrameId;
+    let lastTime = 0;
 
-    const waves = [];
-    const waveCount = 15;
+    const animate = (currentTime) => {
+      // Use requestAnimationFrame's timestamp for smoother animation
+      if (!lastTime) lastTime = currentTime;
+      const deltaTime = (currentTime - lastTime) / 16; // Normalize to frame time
+      lastTime = currentTime;
 
-    // Initialize waves with controlled randomness
-    for (let i = 0; i < waveCount; i++) {
-      waves.push({
-        y: canvas.height / 2 + (Math.random() - 0.5) * 200,
-        length: 0.002 + Math.random() * 0.005,
-        amplitude: 30 + Math.random() * 100,
-        phase: Math.random() * Math.PI * 2,
-        opacity: 0.2 + Math.random() * 0.5
-      });
-    }
-
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight / 2;
-
-      waves.forEach((wave) => {
-        wave.y = canvas.height / 2 + (Math.random() - 0.5) * 50;
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    function drawWaves() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const scrollVelocity = scrollSpeed.get() || 0;
-      animationSpeedRef.current = 0.01 + (scrollVelocity * 0.1);
+      const animationSpeed = 0.01 + (scrollVelocity * 0.1);
 
-      const step = 20; 
+      const step = 20;
       
       waves.forEach((wave) => {
         ctx.beginPath();
@@ -69,19 +68,25 @@ const Waves = ({ scrollSpeed, className }) => {
         ctx.stroke();
       });
 
-      time += animationSpeedRef.current;
-      animationFrameId = requestAnimationFrame(drawWaves);
-    }
+      time += animationSpeed * deltaTime;
+      animationFrameRef.current = requestAnimationFrame(animate);
+    };
 
-    drawWaves();
+    animationFrameRef.current = requestAnimationFrame(animate);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("resize", handleResize);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
-  }, [scrollSpeed]);
+  }, [scrollSpeed, waves, primaryColorRef]);
+
+  useEffect(() => {
+    const cleanupAnimation = drawWaves();
+    return cleanupAnimation;
+  }, [drawWaves]);
 
   return <canvas ref={canvasRef} className={`w-full${className}`} />;
-};
+});
 
 export default Waves;
