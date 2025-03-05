@@ -126,7 +126,7 @@ const ProjectCard = ({ preview, title, scrollSpeed, link }) => {
     } else {
       animateFloating();
     }
-  }, [isCentered]);
+  }, [isCentered, animateFloating, rotate, scale, shadowOpacity, titleOpacity, titleRotateX, titleScale, titleY, y, x]);
 
   const dropShadow = useTransform(
     shadowOpacity,
@@ -166,13 +166,13 @@ const ProjectCard = ({ preview, title, scrollSpeed, link }) => {
         </motion.div>
         {isCentered ? (
           // <Link href={link} target="_blank" className="block cursor-pointer">
-            <Image
-              className="w-full object-cover duration-300 saturate-100 opacity-100"
-              src={preview}
-              height={600}
-              width={1000}
-              alt="Preview of the project"
-            />
+          <Image
+            className="w-full object-cover duration-300 saturate-100 opacity-100"
+            src={preview}
+            height={600}
+            width={1000}
+            alt="Preview of the project"
+          />
           // </Link>
         ) : (
           <Image
