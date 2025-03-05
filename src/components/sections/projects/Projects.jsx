@@ -92,7 +92,7 @@ const Projects = () => {
                     className="flex flex-col mt-[5rem] justify-center"
 
                 >
-                    <motion.div
+                    {/* <motion.div
                         style={{
                             translateX: translateX,
                         }}
@@ -104,7 +104,7 @@ const Projects = () => {
                                 <ProjectCard key={index} title={project.title} preview = {project.img} link={project.link} scrollSpeed={scrollSpeed}/>
                             );
                         })}
-                    </motion.div>
+                    </motion.div> */}
                     <Waves className="absolute mt-[25rem]" scrollSpeed={scrollSpeed} />
 
                 </motion.div>
