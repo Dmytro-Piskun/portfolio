@@ -2,14 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --primary-color: #313131;
   --secondary-color: #6c757d;
   --accent-color: #383838;
-  /* --background-color: #ffffff;     */
-    --background-color: #ffaeff;    
+  --background-color: #ffffff;    
 
-}
+} */
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -45,9 +44,9 @@ width: 200%;
 height: 200%;
 opacity: 0.6;
 background-image: url(../assets/noisy.png);
-background-size: 165px;
+background-size: 150px;
 pointer-events: none;
-animation: noize 0.1s infinite steps(4) ;
+animation: noize 5s infinite steps(4) ;
 z-index: 9999;
 }
 

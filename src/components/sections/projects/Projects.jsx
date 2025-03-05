@@ -80,7 +80,7 @@ const Projects = () => {
 
 
     return (
-        <section ref={container} className="h-[900vh]  text-center text-xl ">
+        <section ref={container} className="h-[400vh]  text-center text-xl ">
             <div className="sticky top-0 h-screen flex bg-opacity-50 flex-col  justify-center font-light overflow-hidden">
 
 

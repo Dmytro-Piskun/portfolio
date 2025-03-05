@@ -5,7 +5,7 @@ import { useEffect,useLayoutEffect, useState } from "react";
 const ScrollBlocker = ({ children }) => {
     const [isScrollBlocked, setIsScrollBlocked] = useState(true);
 
-    const scrollBlockDuration = 1000;
+    const scrollBlockDuration = 0;
 
     useLayoutEffect(() => {
         window.history.scrollRestoration = 'manual'
