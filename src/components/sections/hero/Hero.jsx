@@ -13,19 +13,15 @@ const Hero = () => {
         offset: ['start start', 'end start']
     });
 
-    // Memoize transformed values to prevent unnecessary recalculations
     const scaleValue = useTransform(scrollYProgress, [0, 1], [1, 8]);
     const opacityValue = useTransform(scrollYProgress, [0, 1], [1, -1]);
     const blurValue = useTransform(scrollYProgress, [0, 1], [0, 3]);
 
     const blur = useMotionTemplate`blur(${blurValue}px)`;
 
-    // Consolidate transform calculations
     const headerTransforms = {
         header1Y: useTransform(scrollYProgress, [0, 1], [0, -1100]),
         header2Y: useTransform(scrollYProgress, [0, 1], [0, -1000]),
-        header1LS: useTransform(scrollYProgress, [0, 1], ["1px", "2px"]),
-        header2LS: useTransform(scrollYProgress, [0, 1], ["1px", "2px"])
     };
 
     // Common animation props
@@ -36,7 +32,7 @@ const Hero = () => {
     };
 
     return (
-        <section ref={container} className="h-[200dvh] max-sm:h-[400dvh]">
+        <section ref={container} className="h-[200dvh] max-sm:h-[300dvh]">
             <div className="sticky top-0 overflow-hidden">
                 <motion.div 
                     style={{
@@ -60,7 +56,6 @@ const Hero = () => {
                                 className="text-4xl max-sm:text-3xl pb-5"
                                 style={{
                                     y: headerTransforms.header1Y,
-                                    letterSpacing: headerTransforms.header1LS,
                                 }}
                                 {...animationProps}
                             >
@@ -70,7 +65,6 @@ const Hero = () => {
                                 className="text-3xl max-sm:text-2xl max-sm:px-12 text-center"
                                 style={{
                                     y: headerTransforms.header2Y,
-                                    letterSpacing: headerTransforms.header2LS,
                                 }}
                                 {...animationProps}
                             >
