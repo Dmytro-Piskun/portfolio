@@ -126,7 +126,7 @@ const ProjectCard = ({ preview, title, scrollSpeed, link }) => {
     } else {
       animateFloating();
     }
-  }, [isCentered, animateFloating, rotate, scale, shadowOpacity, titleOpacity, titleRotateX, titleScale, titleY, y, x]);
+  }, [isCentered, rotate, scale, shadowOpacity, titleOpacity, titleRotateX, titleScale, titleY, y, x]);
 
   const dropShadow = useTransform(
     shadowOpacity,

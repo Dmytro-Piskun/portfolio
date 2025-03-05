@@ -4,6 +4,7 @@ import Image from 'next/image';
 import switchOn from '@/assets/scheme-switch/switch-on.png';
 import switchOff from '@/assets/scheme-switch/switch-off.png';
 import { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 
 const SchemeToggle = () => {
     const [isSwitchOn, setIsSwitchOn] = useState(false);
@@ -49,12 +50,18 @@ const SchemeToggle = () => {
     };
 
     return (
-        <Image 
-            onClick={handleSchemeToggle} 
-            className="rotate-3 w-12 cursor-pointer"  
-            alt="lightswitch" 
-            src={isSwitchOn ? switchOn : switchOff} 
-        />
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+        >
+            <Image
+                onClick={handleSchemeToggle}
+                className="rotate-3 w-12 cursor-pointer"
+                alt="lightswitch"
+                src={isSwitchOn ? switchOn : switchOff}
+            />
+        </motion.div>
     );
 };
 
