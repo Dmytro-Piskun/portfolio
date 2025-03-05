@@ -57,7 +57,7 @@ id={"path1"}
 
 
             
-<Text text={"dmitriy.piskun.dp@gmail.com"} fontSize={40} particleSize={1} particleCount={10000}/>
+{/* <Text text={"dmitriy.piskun.dp@gmail.com"} fontSize={40} particleSize={1} particleCount={10000}/> */}
 
 
 
