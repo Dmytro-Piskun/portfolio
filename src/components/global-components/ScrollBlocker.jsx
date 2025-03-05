@@ -1,13 +1,13 @@
 'use client'
 import LenisProvider from "@/lib/lenis/LenisProvider";
-import { useEffect, useState } from "react";
+import { useEffect,useLayoutEffect, useState } from "react";
 
 const ScrollBlocker = ({ children }) => {
     const [isScrollBlocked, setIsScrollBlocked] = useState(true);
 
-    const scrollBlockDuration = 3000;
+    const scrollBlockDuration = 1000;
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         window.history.scrollRestoration = 'manual'
         if (isScrollBlocked) {
             document.body.style.overflow = 'hidden';

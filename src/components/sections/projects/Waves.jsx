@@ -89,4 +89,6 @@ const Waves = React.memo(({ scrollSpeed, className }) => {
   return <canvas ref={canvasRef} className={`w-full${className}`} />;
 });
 
+Waves.displayName = 'Waves';
+
 export default Waves;

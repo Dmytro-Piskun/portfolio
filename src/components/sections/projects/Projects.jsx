@@ -50,8 +50,8 @@ const Projects = () => {
 
     const projects = [
         {
-            title: "Student Management System",
             img: StudentManagementSystemPreview,
+            title: "Student Management System",
             link: "https://github.com/Dmytro-Piskun/student-management-system"
         },
         // {

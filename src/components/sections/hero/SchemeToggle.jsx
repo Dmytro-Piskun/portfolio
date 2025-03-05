@@ -10,7 +10,6 @@ const SchemeToggle = () => {
     const [isSwitchOn, setIsSwitchOn] = useState(false);
 
     useEffect(() => {
-        // Ensure this runs only on the client
         if (typeof window !== "undefined") {
             const savedScheme = localStorage.getItem("prefered-color-scheme");
             if (savedScheme) {
