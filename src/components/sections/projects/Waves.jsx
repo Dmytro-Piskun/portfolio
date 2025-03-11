@@ -37,7 +37,7 @@ const Waves = ({ scrollSpeed, className }) => {
         console.log("canvas", canvas.height);
 
       }
-      while(amplitude > distance)
+      while (amplitude > distance)
 
       return {
         y: y,
@@ -49,35 +49,35 @@ const Waves = ({ scrollSpeed, className }) => {
     });
 
     const waves = [
-    {
-        "y": 249.06602880836434,
+      {
+        "y": 0.495 * canvas.height, //442
         "length": 0.0035091592714977396,
-        "amplitude": 132.47929071302897,
+        "amplitude": 0.312 * canvas.height,
         "phase": 1.8741980240972558,
         "opacity": 0.32078857094734275
-    },
-    {
-        "y": 222.0028485433781,
+      },
+      {
+        "y": 0.431 * canvas.height,
         "length": 0.002089876783386391,
-        "amplitude": 114.34474981304385,
+        "amplitude": 0.27 * canvas.height,
         "phase": 3.1874107467582986,
         "opacity": 0.2398898503017038
-    },
-    {
-        "y": 243.40675549247308,
+      },
+      {
+        "y": 0.481 * canvas.height,
         "length": 0.0029914248875978493,
-        "amplitude": 95.55379377780909,
+        "amplitude": 0.225 * canvas.height,
         "phase": 5.205403233717887,
         "opacity": 0.6681850891411101
-    },
-    {
-        "y": 220.32862429206455,
+      },
+      {
+        "y": 0.426 * canvas.height,
         "length": 0.002840512557759009,
-        "amplitude": 123.93794257984335,
+        "amplitude": 0.291 * canvas.height,
         "phase": 1.1607275057395408,
         "opacity": 0.6739975640248534
-    }
-]
+      }
+    ]
 
     console.log(waves);
 
