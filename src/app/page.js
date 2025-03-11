@@ -15,8 +15,8 @@ export default function Home() {
       {/* <Experience/> */}
       <h1 className="w-full -mt-[90vh] text-center text-6xl"></h1>
       <Projects/>
-      {/* <h1 className="w-full -mt-[80vh] text-center text-6xl"></h1>
-      <Contacts/> */}
+      <h1 className="w-full -mt-[80vh] text-center text-6xl"></h1>
+      <Contacts/>
       {/* </BackgroundNoize> */}
     </main>
   );

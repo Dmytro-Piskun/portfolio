@@ -21,11 +21,11 @@ const Contacts = () => {
 
             />
             <AnimatedText></AnimatedText> */}
+аппвапавпваапв
 
-
-            {/* <svg xmlns="http://www.w3.org/2000/svg" className='w-[2000px]' viewBox="-10 -10 30 20">
+            <svg xmlns="http://www.w3.org/2000/svg" className='w-[2000px]' viewBox="-10 -10 30 20">
                 <motion.path
-id={"path1"}
+                    id={"path1"}
                     d="M 0 0 C 5 0 9 9 6 0 S 21 0 11 0 S 26 7 17 0 S 20 0 20 0" // Initial path
                     stroke="black"
                     fill="none"
@@ -34,7 +34,7 @@ id={"path1"}
                         d: "M 0 0 C 2 -3 5 4 6 0 S 9 2 11 0 S 15 2 17 0 S 20 0 20 0", // Target path
                     }}
                     transition={{
-                        duration: 2, // Duration of the animation
+                        duration: 10, // Duration of the animation
                         ease: "easeInOut", // Easing function for smoothness
                     }}
                 />
@@ -53,11 +53,11 @@ id={"path1"}
                 </motion.text>
 
 
-            </svg> */}
+            </svg>
 
 
-            
-{/* <Text text={"dmitriy.piskun.dp@gmail.com"} fontSize={40} particleSize={1} particleCount={10000}/> */}
+
+            {/* <Text text={"dmitriy.piskun.dp@gmail.com"} fontSize={40} particleSize={1} particleCount={10000}/> */}
 
 
 
