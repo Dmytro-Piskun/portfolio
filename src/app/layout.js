@@ -16,9 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* <ScrollBlocker> */}
+      <ScrollBlocker>
         <body className={openSans.className}>{children}</body>
-      {/* </ScrollBlocker> */}
+      </ScrollBlocker>
     </html>
   );
 }

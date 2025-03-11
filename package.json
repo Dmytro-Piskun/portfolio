@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "lenis": "^1.0.44",
+    "lenis": "^1.2.3",
     "motion": "^12.4.2",
     "next": "15.2.1",
     "react": "19.0.0",

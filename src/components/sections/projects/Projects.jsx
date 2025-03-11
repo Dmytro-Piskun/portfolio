@@ -106,7 +106,7 @@ const Projects = () => {
                             );
                         })}
                     </motion.div> */}
-                    <Waves className="absolute mt-[25rem]" scrollSpeed={scrollSpeed} />
+                    <Waves className="absolute mt-96 max-sm:mt-40" scrollSpeed={scrollSpeed} />
 
                 </motion.div>
 
