@@ -32,7 +32,7 @@ const Hero = () => {
     };
 
     return (
-        <section ref={container} className="h-[200dvh] max-sm:h-[300dvh]">
+        <section ref={container} className="h-[200dvh]">
             <div className="sticky top-0 overflow-hidden">
                 <motion.div 
                     style={{

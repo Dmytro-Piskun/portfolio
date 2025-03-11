@@ -41,12 +41,12 @@ const Projects = () => {
         ["0%", "0%", "-150%"]
     );
 
-    useMotionValueEvent(scale, "change", (latest) => {
-        console.log("Scale:", latest);
-    });
-    useMotionValueEvent(translateY, "change", (latest) => {
-        console.log("translateY:", latest);
-    });
+    // useMotionValueEvent(scale, "change", (latest) => {
+    //     console.log("Scale:", latest);
+    // });
+    // useMotionValueEvent(translateY, "change", (latest) => {
+    //     console.log("translateY:", latest);
+    // });
 
     const projects = [
         {

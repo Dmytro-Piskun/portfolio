@@ -18,7 +18,7 @@ const Waves = ({ scrollSpeed, className }) => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight / 2;
 
-    const waves = Array.from({ length: 15 }, () => {
+    const waveso = Array.from({ length: 4 }, () => {
 
       let y;
       let amplitude;
@@ -28,7 +28,7 @@ const Waves = ({ scrollSpeed, className }) => {
 
         y = canvas.height / 2 + (Math.random() - 0.5) * canvas.height / 8;
 
-        amplitude = canvas.height / 4 + (Math.random() - 0.5) * (canvas.height / 3);
+        amplitude = canvas.height / 4 + (Math.random() - 0.5) * (canvas.height / 8);
 
         distance = Math.min(y, canvas.height - y);
 
@@ -41,12 +41,45 @@ const Waves = ({ scrollSpeed, className }) => {
 
       return {
         y: y,
-        length: 0.002 + Math.random() * 0.005,
+        length: 0.001 + Math.random() * 0.005,
         amplitude: amplitude,
         phase: Math.random() * Math.PI * 2,
         opacity: 0.2 + Math.random() * 0.5
       };
     });
+
+    const waves = [
+    {
+        "y": 249.06602880836434,
+        "length": 0.0035091592714977396,
+        "amplitude": 132.47929071302897,
+        "phase": 1.8741980240972558,
+        "opacity": 0.32078857094734275
+    },
+    {
+        "y": 222.0028485433781,
+        "length": 0.002089876783386391,
+        "amplitude": 114.34474981304385,
+        "phase": 3.1874107467582986,
+        "opacity": 0.2398898503017038
+    },
+    {
+        "y": 243.40675549247308,
+        "length": 0.0029914248875978493,
+        "amplitude": 95.55379377780909,
+        "phase": 5.205403233717887,
+        "opacity": 0.6681850891411101
+    },
+    {
+        "y": 220.32862429206455,
+        "length": 0.002840512557759009,
+        "amplitude": 123.93794257984335,
+        "phase": 1.1607275057395408,
+        "opacity": 0.6739975640248534
+    }
+]
+
+    console.log(waves);
 
     //y
     //amplitude
