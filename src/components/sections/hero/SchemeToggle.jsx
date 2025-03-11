@@ -28,7 +28,7 @@ const SchemeToggle = () => {
                 root.style.setProperty('--primary-color', '#313131');
                 root.style.setProperty('--secondary-color', '#6c757d');
                 root.style.setProperty('--accent-color', '#383838');
-                root.style.setProperty('--background-color', '#ffffff');
+                root.style.setProperty('--background-color', '#EAEAEA');
             } else {
                 root.style.setProperty('--primary-color', '#ffffff');
                 root.style.setProperty('--secondary-color', '#cccccc');
