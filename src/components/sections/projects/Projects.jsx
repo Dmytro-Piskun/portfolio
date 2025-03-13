@@ -8,7 +8,7 @@ import Fake2Preview from "@/assets/project-preview/Fake2Preview.png"
 import Waves from "./Waves";
 import ProjectCard from "./ProjectCard";
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent, useVelocity } from "motion/react";
+import { motion, useScroll, useTransform, useMotionValueEvent, useVelocity, useMotionTemplate } from "motion/react";
 
 
 const Projects = () => {
@@ -34,18 +34,19 @@ const Projects = () => {
         [1, 1, 2]
     );
 
+    const blurValue = useTransform(
+        scrollYProgress,
+        [0, 0.5, 1],
+        [0, 0, 15]
+    );
+
+    const blur = useMotionTemplate`blur(${blurValue}px)`;
+
     const translateY = useTransform(
         scrollYProgress,
         [0, 0.50, 1],
         ["0%", "0%", "150%"]
     );
-
-    // useMotionValueEvent(scale, "change", (latest) => {
-    //     console.log("Scale:", latest);
-    // });
-    // useMotionValueEvent(translateY, "change", (latest) => {
-    //     console.log("translateY:", latest);
-    // });
 
     const projects = [
         {
@@ -73,21 +74,24 @@ const Projects = () => {
             img: PortfolioPreview,
             link: "https://github.com/Dmytro-Piskun/portfolio"
         },
-        
+
     ]
 
 
 
     return (
-        <section ref={container} className="h-[400dvh]  text-center text-xl ">
+        <section ref={container} className="h-[400dvh]  text-center text-xl">
             <div className="sticky top-0 h-screen flex bg-opacity-50 flex-col  justify-center font-light overflow-hidden">
+
+
 
 
                 <motion.div
 
                     style={{
                         scale,
-                        translateY
+                        translateY,
+                        filter: blur,
                     }}
                     className="flex flex-col mt-[5rem] justify-center"
 

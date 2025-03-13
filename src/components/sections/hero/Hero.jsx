@@ -15,7 +15,7 @@ const Hero = () => {
 
     const scaleValue = useTransform(scrollYProgress, [0, 1], [1, 8]);
     const opacityValue = useTransform(scrollYProgress, [0, 1], [1, -1]);
-    const blurValue = useTransform(scrollYProgress, [0, 1], [0, 3]);
+    const blurValue = useTransform(scrollYProgress, [0, 1], [0, 13]);
 
     const blur = useMotionTemplate`blur(${blurValue}px)`;
 
@@ -40,7 +40,7 @@ const Hero = () => {
                         filter: blur,
                     }}
                     layout
-                    className="origin-[50%_65%] will-change-[filter,scale,opacity]"
+                    className="origin-[50%_65%] "
                 >
                     <div className="h-dvh overflow-hidden flex flex-col">
                         <Lines scrollYProgress={scrollYProgress} />
