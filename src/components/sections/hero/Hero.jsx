@@ -24,7 +24,6 @@ const Hero = () => {
         header2Y: useTransform(scrollYProgress, [0, 1], [0, -1000]),
     };
 
-    // Common animation props
     const animationProps = {
         initial: { opacity: 0 },
         animate: { opacity: 1 },
@@ -34,17 +33,17 @@ const Hero = () => {
     return (
         <section ref={container} className="h-[200dvh]">
             <div className="sticky top-0 overflow-hidden">
-                <motion.div 
+                <motion.div
                     style={{
                         scale: scaleValue,
                         opacity: opacityValue,
                         filter: blur,
-                    }} 
+                    }}
                     layout
                     className="origin-[50%_65%] will-change-[filter,scale,opacity]"
                 >
                     <div className="h-dvh overflow-hidden flex flex-col">
-                        <Lines />
+                        <Lines scrollYProgress={scrollYProgress} />
                         <header className="flex justify-end p-16 text-md grow-0">
                             <div className="flex gap-8 items-center">
                                 <Time />

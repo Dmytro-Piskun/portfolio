@@ -17,28 +17,27 @@ const Projects = () => {
 
     const { scrollYProgress } = useScroll({
         target: container,
-        offset: ['start start', 'end end']
-    }
-    )
+        offset: ['start start', 'end start']
+    });
 
     const scrollSpeed = useVelocity(scrollYProgress);
 
     const translateX = useTransform(
         scrollYProgress,
         [0, 1],
-        ["0%", "-120%"]
+        ["0%", "-190%"]
     );
 
     const scale = useTransform(
         scrollYProgress,
         [0, 0.75, 1],
-        [1, 1, 1.5]
+        [1, 1, 2]
     );
 
     const translateY = useTransform(
         scrollYProgress,
-        [0, 0.75, 1],
-        ["0%", "0%", "-150%"]
+        [0, 0.50, 1],
+        ["0%", "0%", "150%"]
     );
 
     // useMotionValueEvent(scale, "change", (latest) => {

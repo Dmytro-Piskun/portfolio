@@ -18,35 +18,35 @@ const Waves = ({ scrollSpeed, className }) => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight / 2;
 
-    const waveso = Array.from({ length: 4 }, () => {
+    // const waves = Array.from({ length: 5 }, () => {
 
-      let y;
-      let amplitude;
-      let distance;
+    //   let y;
+    //   let amplitude;
+    //   let distance;
 
-      do {
+    //   do {
 
-        y = canvas.height / 2 + (Math.random() - 0.5) * canvas.height / 8;
+    //     y = canvas.height / 2 + (Math.random() - 0.5) * canvas.height / 8;
 
-        amplitude = canvas.height / 4 + (Math.random() - 0.5) * (canvas.height / 8);
+    //     amplitude = canvas.height / 4 + (Math.random() - 0.5) * (canvas.height / 8);
 
-        distance = Math.min(y, canvas.height - y);
+    //     distance = Math.min(y, canvas.height - y);
 
-        console.log("y", y);
-        console.log("distance", distance);
-        console.log("canvas", canvas.height);
+    //     console.log("y", y);
+    //     console.log("distance", distance);
+    //     console.log("canvas", canvas.height);
 
-      }
-      while (amplitude > distance)
+    //   }
+    //   while (amplitude > distance)
 
-      return {
-        y: y,
-        length: 0.001 + Math.random() * 0.005,
-        amplitude: amplitude,
-        phase: Math.random() * Math.PI * 2,
-        opacity: 0.2 + Math.random() * 0.5
-      };
-    });
+    //   return {
+    //     y: y,
+    //     length: 0.001 + Math.random() * 0.005,
+    //     amplitude: amplitude,
+    //     phase: Math.random() * Math.PI * 2,
+    //     opacity: 0.2 + Math.random() * 0.5
+    //   };
+    // });
 
     const waves = [
       {

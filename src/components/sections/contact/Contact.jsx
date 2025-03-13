@@ -3,15 +3,61 @@ import Image from 'next/image'
 import SomebodyHireThisGuy from '@/assets/SomebodyHireThisGuy.gif'
 import AnimatedText from './AnimatedTeaxt';
 import Lines from '../projects/Lines';
-import { motion } from 'motion/react';
+import { motion, useMotionTemplate, useScroll, useSpring, useTransform } from 'motion/react';
 import Text from './Text';
+import { useRef } from 'react';
 
 const Contacts = () => {
+
+    const container = useRef(null);
+
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start start', 'end end']
+    });
+
+    // const dValue = useTransform(scrollYProgress, [0, 0.99, 1], [10, 15, 10])
+
+    // const d = useMotionTemplate`M 0 10 Q 10 ${dValue} 20 10`;
+
+    const top = useTransform(scrollYProgress, [0, 1], ["-10%", "50%"])
+
     return (
-        <section className="h-[100dvh]  text-3xl flex items-center justify-center">
+        <section ref={container} className="h-[200dvh] text-3xl">
+
+            <div className="sticky top-0 overflow-hidden h-screen w-full flex flex-col gap-80 justify-center items-center">
+                {/* <svg xmlns="http://www.w3.org/2000/svg" className='w-full' viewBox="0 0 20 20">
+                    <motion.path
+                        d={d} // Initial path
+                       stroke="var(--primary-color)"
+                        fill="none"
+                        strokeWidth="0.03"
+                    // animate={{
+                    //     d: "M 0 0 C 2 -3 5 4 6 0 S 9 2 11 0 S 15 2 17 0 S 20 0 20 0", // Target path
+                    // }}
+                    // transition={{
+                    //     duration: 10, // Duration of the animation
+                    //     ease: "easeInOut", // Easing function for smoothness
+                    // }}
+                    />
+                </svg> */}
+                <motion.div
+                className='flex flex-col gap-8 text-center'
+                    style={{ top, left: "50%", translateX: "-50%", translateY: "-50%", position: "absolute" }}
+                >
+
+                    <a className='z-50 font-light' href="mailto:dmitriy.piskun.dp@gmail.com">dmitriy.piskun.dp@gmail.com</a>
+                    <div className='flex gap-8 items-center justify-center'>
+                        <div className='font-light'>Linkedin</div>
+                        <div className='font-light'>Github</div>
+                        <div className='font-light'>Telegram</div>
+                    </div>
+                </motion.div>
 
 
-            {/*  <a className='z-50 font-light' href="mailto:dmitriy.piskun.dp@gmail.com">dmitriy.piskun.dp@gmail.com</a> */}
+
+            </div>
+
 
             {/* <Image
                 src={SomebodyHireThisGuy}
@@ -21,9 +67,9 @@ const Contacts = () => {
 
             />
             <AnimatedText></AnimatedText> */}
-аппвапавпваапв
 
-            <svg xmlns="http://www.w3.org/2000/svg" className='w-[2000px]' viewBox="-10 -10 30 20">
+
+            {/* <svg xmlns="http://www.w3.org/2000/svg" className='w-[2000px]' viewBox="-10 -10 30 20">
                 <motion.path
                     id={"path1"}
                     d="M 0 0 C 5 0 9 9 6 0 S 21 0 11 0 S 26 7 17 0 S 20 0 20 0" // Initial path
@@ -53,7 +99,7 @@ const Contacts = () => {
                 </motion.text>
 
 
-            </svg>
+            </svg> */}
 
 
 
