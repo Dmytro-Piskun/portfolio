@@ -137,24 +137,24 @@ const Waves = ({ scrollSpeed, className }) => {
     };
   };
 
-  useEffect(() => {
-    const resizeCanvas = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
+  // useEffect(() => {
+  //   const resizeCanvas = () => {
+  //     const canvas = canvasRef.current;
+  //     if (!canvas) return;
 
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight / 2;
-    };
+  //     canvas.width = window.innerWidth;
+  //     canvas.height = window.innerHeight / 2;
+  //   };
 
-    resizeCanvas();
+  //   resizeCanvas();
 
-    const resizeObserver = new ResizeObserver(resizeCanvas);
-    resizeObserver.observe(canvasRef.current.parentElement);
+  //   const resizeObserver = new ResizeObserver(resizeCanvas);
+  //   resizeObserver.observe(canvasRef.current.parentElement);
 
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, []);
+  //   return () => {
+  //     resizeObserver.disconnect();
+  //   };
+  // }, []);
 
   useEffect(() => {
     const cleanupAnimation = drawWaves();
