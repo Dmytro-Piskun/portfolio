@@ -25,9 +25,25 @@ const Hero = () => {
     };
 
     const animationProps = {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        transition: { duration: 2 }
+        initial: {
+            opacity: 0,
+            rotateY: 90,  // Rotate the text around the Y-axis (like a flip)
+            scale: 0.8,   // Slightly scale down the text
+            translateZ: -200, // Push the text back in 3D space
+            filter: 'blur(10px)' // Add a blur effect for a smooth transition
+        },
+        animate: {
+            opacity: 1,
+            rotateY: 0,   // Bring the text back to its original rotation
+            scale: 1,     // Scale the text back to its original size
+            translateZ: 0, // Bring the text forward in 3D space
+            filter: 'blur(0px)' // Remove the blur effect
+        },
+        transition: {
+            duration: 1.5,
+            ease: [0.22, 1, 0.36, 1], // Custom easing for a smooth, bouncy effect
+            delay: 0.2 // Optional delay for a staggered appearance
+        }
     };
 
     return (

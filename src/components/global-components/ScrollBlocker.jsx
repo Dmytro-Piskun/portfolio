@@ -23,9 +23,9 @@ const ScrollBlocker = ({ children }) => {
 
     return (
         <>
-            <LenisProvider scrollBlockDuration={scrollBlockDuration}>
+            {/* <LenisProvider scrollBlockDuration={scrollBlockDuration}> */}
                 {children}
-            </LenisProvider>
+            {/* </LenisProvider> */}
         </>
     );
 };

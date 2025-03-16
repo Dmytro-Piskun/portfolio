@@ -42,16 +42,27 @@ const Contacts = () => {
                     />
                 </svg> */}
                 <motion.div
-                className='flex flex-col gap-8 text-center'
+                    className='flex flex-col gap-8 text-center'
                     style={{ top, left: "50%", translateX: "-50%", translateY: "-50%", position: "absolute" }}
                 >
 
+                    {/* <Image
+                        src={SomebodyHireThisGuy}
+                        width={200}
+                        height={200}
+                        alt="SomebodyHireThisGuy GIF"
+
+                    /> */}
+
                     <a className='z-50 font-light' href="mailto:dmitriy.piskun.dp@gmail.com">dmitriy.piskun.dp@gmail.com</a>
                     <div className='flex gap-8 items-center justify-center'>
-                        <div className='font-light'>Linkedin</div>
-                        <div className='font-light'>Github</div>
-                        <div className='font-light'>Telegram</div>
+                        <a href="https://www.linkedin.com/in/dmytro-piskun-84760b2a7/" className='font-light'>Linkedin</a>
+                        <a href="https://github.com/Dmytro-Piskun" className='font-light'>Github</a>
+                        <a href="https://t.me/dmitriyPiskun" className='font-light'>Telegram</a>
                     </div>
+
+
+
                 </motion.div>
 
 
@@ -59,14 +70,7 @@ const Contacts = () => {
             </div>
 
 
-            {/* <Image
-                src={SomebodyHireThisGuy}
-                width={200}
-                height={200}
-                alt="SomebodyHireThisGuy GIF"
-
-            />
-            <AnimatedText></AnimatedText> */}
+            {/* <AnimatedText></AnimatedText> */}
 
 
             {/* <svg xmlns="http://www.w3.org/2000/svg" className='w-[2000px]' viewBox="-10 -10 30 20">

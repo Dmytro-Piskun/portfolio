@@ -35,7 +35,7 @@ const Lines = ({ scrollYProgress }) => {
 
     return (
         <div className="h-full w-full absolute pointer-events-none">
-            <svg height="100%" viewBox="0 0 1595 823" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice" className="w-full h-full opacity-40">
+            <svg height="100%" viewBox="0 0 1595 823" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice" className="w-full h-full opacity-50">
                 <g clipPath="url(#clip0_386_2)">
                     <motion.path ref={line1} initial={{
                         strokeDasharray: line1Length,
