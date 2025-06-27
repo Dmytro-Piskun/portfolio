@@ -19,9 +19,9 @@ const Hero = () => {
 
     const blur = useMotionTemplate`blur(${blurValue}px)`;
 
-    const headerTransforms = {
-        header1Y: useTransform(scrollYProgress, [0, 1], [0, -1100]),
-        header2Y: useTransform(scrollYProgress, [0, 1], [0, -1000]),
+    const headingTransforms = {
+        heading1Y: useTransform(scrollYProgress, [0, 1], [0, -1200]),
+        heading2Y: useTransform(scrollYProgress, [0, 1], [0, -1000]),
     };
 
     const animationProps = {
@@ -47,7 +47,7 @@ const Hero = () => {
     };
 
     return (
-        <section ref={container} className="h-[200dvh]">
+        <section ref={container} className="h-[200vh]">
             <div className="sticky top-0 overflow-hidden">
                 <motion.div
                     style={{
@@ -58,7 +58,7 @@ const Hero = () => {
                     layout
                     className="origin-[50%_65%] "
                 >
-                    <div className="h-dvh overflow-hidden flex flex-col">
+                    <div className="h-screen overflow-hidden flex flex-col">
                         <Lines scrollYProgress={scrollYProgress} />
                         <header className="flex justify-end p-16 text-md grow-0">
                             <div className="flex gap-8 items-center">
@@ -70,7 +70,7 @@ const Hero = () => {
                             <motion.h1
                                 className="text-4xl max-sm:text-3xl pb-5"
                                 style={{
-                                    y: headerTransforms.header1Y,
+                                    y: headingTransforms.heading1Y,
                                 }}
                                 {...animationProps}
                             >
@@ -79,7 +79,7 @@ const Hero = () => {
                             <motion.h2
                                 className="text-3xl max-sm:text-2xl max-sm:px-12 text-center"
                                 style={{
-                                    y: headerTransforms.header2Y,
+                                    y: headingTransforms.heading2Y,
                                 }}
                                 {...animationProps}
                             >

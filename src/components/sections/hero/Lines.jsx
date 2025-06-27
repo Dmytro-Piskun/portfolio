@@ -18,11 +18,6 @@ const Lines = ({ scrollYProgress }) => {
     const line2Scale = useTransform(scrollYProgress, [0, 1], [1, 2.5]);
     const line3Scale = useTransform(scrollYProgress, [0, 1], [1, 0.6]);
     const line4Scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
-    
-
-    
-    
-
 
     useEffect(() => {
 

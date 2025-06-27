@@ -25,7 +25,7 @@ const Time = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }} 
-     className=" text-primary font-light font-condensed text-2xl max-sm:text-xl"
+     className=" text-primary font-light font-condensed text-xl max-sm:text-xl"
      >LITHUANIA, {lithuanianTime.toString()} {isDST ? "GMT+3" : "GMT+2"}</motion.p>
   );
 };

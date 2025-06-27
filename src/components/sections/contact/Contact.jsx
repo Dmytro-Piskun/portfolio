@@ -23,7 +23,7 @@ const Contacts = () => {
     const top = useTransform(scrollYProgress, [0, 1], ["-10%", "50%"])
 
     return (
-        <section ref={container} className="h-[200dvh] text-3xl">
+        <section ref={container} className="h-[200vh] text-3xl">
 
             <div className="sticky top-0 overflow-hidden h-screen w-full flex flex-col gap-80 justify-center items-center">
                 {/* <svg xmlns="http://www.w3.org/2000/svg" className='w-full' viewBox="0 0 20 20">
